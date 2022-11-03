@@ -72,8 +72,8 @@ function BottomTabNavigator() {
     <Tab.Navigator
       tabBarOptions={{
         style: {
-          backgroundColor: '"rgba(0, 0, 0, 0)"',
-          borderTopColor: theme.colors['Light Inverse'],
+          backgroundColor: theme.colors['Background'],
+          borderTopColor: theme.colors['Strong'],
         },
       }}
     >
