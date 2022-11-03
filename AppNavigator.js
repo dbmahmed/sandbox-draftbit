@@ -67,25 +67,66 @@ function Placeholder() {
     </View>
   );
 }
+function BottomTabNavigator() {
+  return (
+    <Tab.Navigator
+      tabBarOptions={{
+        style: {
+          backgroundColor: '"rgba(0, 0, 0, 0)"',
+          borderTopColor: theme.colors['Light Inverse'],
+        },
+      }}
+    >
+      <Tab.Screen
+        name="LineChartScreen"
+        component={LineChartScreen}
+        options={{
+          title: 'Line Chart',
+          tabBarIcon: ({ focused, color }) => (
+            <Icon
+              name="AntDesign/linechart"
+              size={25}
+              color={focused ? color : color}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="BarChartScreen"
+        component={BarChartScreen}
+        options={{
+          title: 'Bar Chart',
+          tabBarIcon: ({ focused, color }) => (
+            <Icon
+              name="AntDesign/barschart"
+              size={25}
+              color={focused ? color : color}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="SimpleChatScreen"
+        component={SimpleChatScreen}
+        options={{
+          title: 'Simple Chat',
+          tabBarIcon: ({ focused, color }) => (
+            <Icon
+              name="Entypo/chat"
+              size={25}
+              color={focused ? color : color}
+            />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
+
 export default function RootAppNavigator() {
   return (
     <NavigationContainer linking={LinkingConfiguration}>
       <Stack.Navigator>
-        <Stack.Screen
-          name="LineChartScreen"
-          component={LineChartScreen}
-          options={{ title: 'Line Chart' }}
-        />
-        <Stack.Screen
-          name="BarChartScreen"
-          component={BarChartScreen}
-          options={{ title: 'Bar Chart' }}
-        />
-        <Stack.Screen
-          name="SimpleChatScreen"
-          component={SimpleChatScreen}
-          options={{ title: 'Simple Chat' }}
-        />
         <Stack.Screen
           name="BarChartCopyScreen"
           component={BarChartCopyScreen}
@@ -95,6 +136,10 @@ export default function RootAppNavigator() {
           name="NavigationParamExampleScreen"
           component={NavigationParamExampleScreen}
           options={{ title: 'Navigation Param Example' }}
+        />
+        <Stack.Screen
+          name="BottomTabNavigator"
+          component={BottomTabNavigator}
         />
       </Stack.Navigator>
     </NavigationContainer>
