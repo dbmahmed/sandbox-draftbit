@@ -1,0 +1,14 @@
+set timeout 180
+spawn eas init
+match_max 100000
+
+expect {
+    "Existing project found*" {
+        send -- "Y"
+        exp_continue
+        }
+    "Would you like to create a project*" {
+        send -- "Y"
+        exp_continue
+        }
+}

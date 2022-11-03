@@ -1,0 +1,8 @@
+set timeout 600
+spawn eas build -p android --no-wait
+match_max 100000
+
+expect "Generate a new Android Keystore*"
+send -- "y"
+
+expect eof
